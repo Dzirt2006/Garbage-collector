@@ -1,0 +1,54 @@
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ProgrammEnter {
+
+    public ProgrammEnter() {
+    }
+
+    public double NUMBER(String some) {
+        String s = null;
+        double d = 0;
+        System.out.println("Enter the number: "+some);
+        InputStreamReader keyreader = new InputStreamReader(System.in);
+        BufferedReader input = new BufferedReader(keyreader);
+        try {
+            s = input.readLine();
+        } catch (IOException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        d = Double.parseDouble(s);//преобразовывем String в Double
+        return d;
+    }
+
+    public static void main(String[] args) {
+        double D, x1, x2;
+        ProgrammEnter enter = new ProgrammEnter();
+        double a = enter.NUMBER("a");
+        double b = enter.NUMBER("b");
+        double c = enter.NUMBER("c");
+
+        D = (Math.pow(b, 2)) - 4 * a * c;
+        System.out.println("Diskriminants: " + D);
+        if (D > 0) {
+            System.out.println("Дискриминант больше нуля-2 корня");
+            x1 = (-b + (Math.sqrt(D))) / (2 * a);
+            x2 = (-b - (Math.sqrt(D))) / (2 * a);
+            System.out.println("Первый корень = " + x1);
+            System.out.println("Второй корень = " + x2);
+        }
+        if (D == 0) {
+            System.out.println("Дискриминант равен 0 корни равны,следовательно корень-один");
+            x1 = (-b + (Math.sqrt(D))) / (2 * a);
+            System.out.println("Корень =" + x1);
+        } else {
+            System.out.println("дискриминант меньше 0-корни не вещественные");
+        }
+        {
+
+        }
+    }
+
+}
